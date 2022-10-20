@@ -1,9 +1,9 @@
 var db=require("../config/connection")
 var collection=require('../config/collections')
-const { ObjectId } = require('mongodb');
+const { ObjectId, ObjectID } = require('mongodb');
 module.exports={
      addProduct:(product,callback)=>{
-        db.get().collection('product').insertOne(product).then((data)=>{
+        db.get().collection(collection.PRODUCT_COLLECTIONS).insertOne(product).then((data)=>{
         callback(data.insertedId)
    })
   },
